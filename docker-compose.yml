@@ -1,0 +1,15 @@
+services:
+  wheelset-mileage-api:
+    build: .
+    image: wheelset-mileage-api:latest
+    container_name: wheelset-mileage-api
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/warehouse.db
+    volumes:
+      - wheelset-data:/data
+    restart: unless-stopped
+
+volumes:
+  wheelset-data:
